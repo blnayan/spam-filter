@@ -1,7 +1,6 @@
 import collections
 from collections.abc import Iterable
 from typing import cast
-from tensorflow import keras
 import matplotlib.pyplot as plt
 import nltk
 import numpy as np
@@ -13,7 +12,9 @@ from sklearn.model_selection import train_test_split
 from wordcloud import WordCloud
 
 # Clean Data
-mails = pd.read_csv("enron_spam_data.csv")
+mails = pd.read_csv("input_data/enron_spam_data.csv")
+
+print(mails.head())
 
 mails.drop(labels=["Message ID", "Date"], axis=1, inplace=True)
 
@@ -42,6 +43,8 @@ mails_split = train_test_split(mails, test_size=0.2, random_state=123, shuffle=T
 train_data, test_data = cast(tuple[pd.DataFrame, pd.DataFrame], mails_split)
 train_data.reset_index(inplace=True, drop=True)
 test_data.reset_index(inplace=True, drop=True)
+
+print(train_data.head())
 
 print("Training Data:", train_data["spam"].count())
 print("Test Data:", test_data["spam"].count())
