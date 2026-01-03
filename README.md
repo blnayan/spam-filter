@@ -12,6 +12,13 @@ Three distinct models were implemented and evaluated on the test set.
 | **DNN (TensorFlow)** | 97.38% | 0.9668 | 0.9834 | 0.9750 | 0.9725 |
 | **Transformer (DistilBERT)** | 99.27% | 0.9925 | 0.9934 | 0.9929 | 0.9923 |
 
+### Confusion Matrices
+| Model | True Positive (Spam) | False Negative (Missed Spam) | True Negative (Ham) | False Positive (False Alarm) |
+|-------|----------------------|------------------------------|---------------------|------------------------------|
+| **Naive Bayes** | 3288 | 184 | 3059 | 138 |
+| **DNN (TensorFlow)** | 3376 | 57 | 3055 | 116 |
+| **Transformer** | 3449 | 23 | 3171 | 26 |
+
 ### Model Details
 1.  **Naive Bayes (`naive_bayes.ipynb`)**:
     *   Algorithm: Multinomial Naive Bayes (via Scikit-learn).
